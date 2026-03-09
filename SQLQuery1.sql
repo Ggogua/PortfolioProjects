@@ -60,7 +60,8 @@ WHERE continent IS NOT NULL
 GROUP BY continent
 ORDER BY TotalDeathCount DESC;
 
--- Showing continents with the highest death rate (% of population)
+-- Showing continents with the highest death rate
+
 SELECT continent,
        MAX(CAST(total_deaths AS int)) AS TotalDeathCount,
        MAX(CAST(total_deaths AS float) / population * 100) AS DeathRatePercentage
@@ -137,6 +138,7 @@ JOIN PortfolioProject..CovidVaccinations AS VAC
     ON DEA.location = VAC.location
     AND DEA.date = VAC.date
 WHERE DEA.continent IS NOT NULL;
+
 
 
 
